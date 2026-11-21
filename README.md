@@ -1,7 +1,7 @@
 ### EX3 Implementation of GSP Algorithm In Python
 ### DATE: 21/11/2026
 ### Reference no : 212225220011
-### Name :ARTHI S<img width="475" height="303" alt="Screenshot 2026-11-21 134659" src="https://github.com/user-attachments/assets/871291b6-ecaa-4993-bdb5-a375d0ea43c3" />
+### Name :ARTHI S
 
 ### AIM: To implement GSP Algorithm In Python.
 ### Description:
