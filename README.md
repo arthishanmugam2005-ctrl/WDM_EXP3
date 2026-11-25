@@ -41,21 +41,28 @@ for each wear category.</p>
 </p>
 ### Program:
 
-```python
-from collections import defaultdict
+```from collections import defaultdict
 from itertools import combinations
 # Function to generate candidate k-item sequences
 def generate_candidates(dataset, k):
-
-
-    /WRITE YOUR CODE HERE/
-
+    candidates = defaultdict(int)
+    for sequence in dataset:
+        for itemset in combinations(sequence, k):
+            candidates[itemset] += 1
+    return {item: support for item, support in candidates.items() if support >= min_support}
 
 #Function to perform GSP algorithm
 def gsp(dataset, min_support):
-
-
-  /WRITE YOUR CODE HERE/
+    frequent_pattern = defaultdict(int)
+    k = 1
+    sequence = dataset
+    while True:
+      candidates = generate_candidates(sequence, k)
+      if not candidates:
+        break
+      frequent_pattern.update(candidates)
+      k += 1
+    return frequent_pattern
 
 
 #Example dataset for each category
@@ -103,15 +110,15 @@ if party_wear_result:
  print(f"Pattern: {pattern}, Support: {support}")
 else:
  print("No frequent sequential patterns found in Party Wear.")
+
 ```
 ### Output:
-<img width="1508" height="803" alt="Screenshot 2026-11-21 135132" src="https://github.com/user-attachments/assets/d6f2be9d-07c5-4ae8-a8e6-796aa57111cc" />
+<img width="547" height="282" alt="image" src="https://github.com/user-attachments/assets/f014e62e-8128-4891-92b9-62b5294d00de" />
 
 
 
 ### Visualization:
-```python
-import matplotlib.pyplot as plt
+```import matplotlib.pyplot as plt
 
 # Function to visualize frequent sequential patterns with a line plot
 def visualize_patterns_line(result, category):
@@ -134,10 +141,11 @@ def visualize_patterns_line(result, category):
 visualize_patterns_line(top_wear_result, 'Top Wear')
 visualize_patterns_line(bottom_wear_result, 'Bottom Wear')
 visualize_patterns_line(party_wear_result, 'Party Wear')
+
 ```
 ### Output:
-<img width="486" height="306" alt="Screenshot 2026-11-21 134728" src="https://github.com/user-attachments/assets/ee3ebc99-1ab4-42ff-9bb8-5348639771cc" />
-
+<img width="891" height="521" alt="image" src="https://github.com/user-attachments/assets/23d1c1e3-01f0-4b5f-8422-a2787d3579d1" />
+<img width="817" height="466" alt="image" src="https://github.com/user-attachments/assets/8831aee3-7431-4d70-90f3-7d69c6d36292" />
 
 ### Result:
 Thus the program for the implementation of GSP Algorithm in Python has been completed and verified.
